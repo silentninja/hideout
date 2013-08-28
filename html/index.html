@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="EN" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Welcome!</title>
+<link rel = "stylesheet"
+      type = 
+      href = "wordFind.css" />
+<script type="text/javascript">
+
+ 
+
+function showhide() {
+
+    // Get a reference to your form's id
+
+    var form = document.getElementById("register");
+
+ 
+
+    // If it is hidden, show it, otherwise hide it.
+
+    if (form.style.visibility == "hidden") {
+
+        form.style.visibility = "visible";
+
+    }
+
+    else {
+
+       form.style.visibility = "hidden";
+
+    }
+
+}
+</script>
+</head>
+<body>
+<h1>Welcome to my website</h1>
+<div>
+<p>Register here</p>
+<form action = "acreated.php"
+        method = "post"
+				id = "login">
+				<div>
+   <fieldset>
+   <label>enter username</label>
+   <input type="text" 
+   			id="user"   
+			   name="user"		  />
+   		  <label>enter password</label>
+   	
+   		 <input type="password" 
+   		 id="pass"
+   		 name="pass"
+   		  /> 
+   		  
+   </fieldset>
+   	
+  <input type = "submit"
+         value = "register" />
+         </fieldset>
+         </form>
+</div>
+<p></br></p>
+<div>
+<input type="button" name="click for registration form" value="Show/Hide" onclick="showhide()"/>
+
+<form action = "welcome.php"
+        method = "post"
+				id = "register" style="visibility:hidden">
+				<div>
+   <fieldset>
+   <label>enter username</label>
+   <input type="text" 
+   			id="user"   
+			   name="user"		  />
+   		  <label>enter password</label>
+   	
+   		 <input type="password" 
+   		 id="pass"
+   		 name="pass"
+   		  /> 
+   		  
+   </fieldset>
+   	
+  <input type = "submit"
+         value = "login" />
+         </fieldset>
+         </form>
+</div>
