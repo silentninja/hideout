@@ -5,7 +5,7 @@
 <head>
 <title>Welcome!</title>
 <link rel = "stylesheet"
-      type = 
+      type = "text/css"
       href = "wordFind.css" />
 <script type="text/javascript">
 
@@ -37,39 +37,12 @@ function showhide() {
 </script>
 </head>
 <body>
-<h1>Welcome to my website</h1>
+<h1>Welcome</h1>
 <div>
-<p>Register here</p>
-<form action = "acreated.php"
+<p>Login</p>
+<form action = "enter.php"
         method = "post"
 				id = "login">
-				<div>
-   <fieldset>
-   <label>enter username</label>
-   <input type="text" 
-   			id="user"   
-			   name="user"		  />
-   		  <label>enter password</label>
-   	
-   		 <input type="password" 
-   		 id="pass"
-   		 name="pass"
-   		  /> 
-   		  
-   </fieldset>
-   	
-  <input type = "submit"
-         value = "register" />
-         </fieldset>
-         </form>
-</div>
-<p></br></p>
-<div>
-<input type="button" name="click for registration form" value="Show/Hide" onclick="showhide()"/>
-
-<form action = "welcome.php"
-        method = "post"
-				id = "register" style="visibility:hidden">
 				<div>
    <fieldset>
    <label>enter username</label>
@@ -90,3 +63,20 @@ function showhide() {
          </fieldset>
          </form>
 </div>
+<p></br></p>
+<input type="button" value="Dont have an account Click here!!!!" onclick="showhide()"/>
+
+<div id="register" style="visibility:hidden">
+	</br>
+	<p>
+<form action="customerreg.php">
+    <input type="submit" value="Customer registration">
+</form>
+<form action="companyreg.php">
+    <input type="submit" value="Company registration">
+</form>
+</p>
+
+</div>
+</body>
+</html>

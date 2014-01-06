@@ -5,7 +5,7 @@
 </head>
 <body>
 <?php
-$conn = mysql_connect("mysql.serversfree.com", "u516454942_ninja", "coolinuyasha95") or die (mysql_error());
+$conn = mysql_connect("mysql.serversfree.com", "u516454942_ninja", "") or die (mysql_error());
 mysql_select_db("u516454942_accs", $conn);
 $username=filter_input(INPUT_POST,"user");
 print "$username";

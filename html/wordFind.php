@@ -14,16 +14,50 @@
 <body>
 
 <?php
+$username=$_SESSION["user"];
+function connect()
+	{
+		if(is_resource($conn))
+			{
+			return $conn;
+			}
+			else{
+			$conn = mysql_connect("mysql.serversfree.com", "u516454942_ninja", "") or die (mysql_error());
+			mysql_select_db("u516454942_accs", $conn);
+			return $conn;
+				}
+	}
+$conn=connect();
+
 //puzzle maker:makes puzzle out of the words enterd by the user
 if (!filter_has_var(INPUT_POST, "wordList")){
   print <<< HERE
     <p>
       This program is meant to be run from the 
-      <a href = "wordFind.html">wordFind</a>
+      <a href = "index.html">Main Page</a>
       page.
     </p>
 HERE;
 } else {
+	$sql=<<<HERE
+SELECT * FROM accounts WHERE username='$username';
+HERE;
+$result=mysql_query($sql,$conn) or die(mysql_error());
+
+$user=mysql_fetch_assoc($result);
+$score=$user['score'];//user score
+$nog=$user['no'];//no of games played
+$nog++;
+
+print"your score is $score<br>";
+print"no of games is updated to $nog";
+//updating the games played
+$sqli=<<<HERE
+UPDATE accounts
+SET no='$nog'
+WHERE username ='$username';
+HERE;
+mysql_query($sqli,$conn) or die(mysql_error());
   //get puzzle data from HTML form
   $boardData = array(
     "width" => filter_input(INPUT_POST, "width"),
@@ -307,44 +341,9 @@ HERE;
 
 } // end printPuzzle
 
-$conn = mysql_connect("mysql.serversfree.com", "u516454942_ninja", "coolinuyasha95") or die (mysql_error());
-mysql_select_db("u516454942_accs", $conn);
-$sql = "SELECT * FROM  `accounts` WHERE username =  \"silentninja\"LIMIT 0 , 30";
-$result = mysql_query($sql, $conn) or die(mysql_error());
-while($row = mysql_fetch_assoc($result)){
-foreach ($row as $name => $value){
-print "<p>$name: $value <br />\n</p>";
-} // end foreachz
-print "<br /> \n";}
 
  // end while
 
-print <<<HERE
-
-
-   		  <form action = "accreated.php"
-        method = "post"
-				id = "accForm">
-				<div>
-   <fieldset>
-   <label>enter username</label>
-   <input type="text" 
-   			id="user"   
-			   name="user"		  />
-   		  <label>enter password</label>
-   	
-   		 <input type="password" 
-   		 id="pass"
-   		 name="pass"
-   		  /> 
-   		  
-   </fieldset>
-   	
-  <input type = "submit"
-         value = "enter" />
-         </fieldset>
-         </form>
-HERE;
 
 ?>
 

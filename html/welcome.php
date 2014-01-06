@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php session_start(); 
+include 'dbconn.php';
+?>
+
 <!doctype html public "-//W3C//DTD HTML 4.0 //EN">
 <html>
 <head>
@@ -6,25 +9,33 @@
        </head>
        <body>
        <?php
-       $conn = mysql_connect("mysql.serversfree.com", "u516454942_ninja","") or die (mysql_error());
-mysql_select_db("u516454942_accs", $conn);
+      
+$conn=connect();
+//getting user info
 $username=filter_input(INPUT_POST,"user");
-print "welcome'$username'";
+print "welcome'$username'\n";
 $password=filter_input(INPUT_POST,"pass");
+$email=filter_input(INPUT_POST,"email");
 $username=mysql_real_escape_string($username);
 $password=mysql_real_escape_string($password);
+$email=mysql_real_escape_string($email);
 $password=md5($password);
 $sql = <<<End
 INSERT INTO accounts 
-       (username,password,no,score) 
-       VALUES('$username','$password',0, 0);
+       (username,password,email) 
+       VALUES('$username','$password','$email');
 End;
 $result=mysql_query($sql,$conn) or die (mysql_error());
-$_SESSION["con"]=$conn;
+if($result!=0)
+{
+	print "account created successfully";
+}
+
 $_SESSION["user"]=$username;
 $_SESSION["pass"]=$password;
-print "<a href='WordFindmaker.php'>click</a>";
 
+print "click to continue<a href='main.php'>click</a>";
+     
 
 			
 
