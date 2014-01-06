@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Coda Caption';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Coda Caption Heavy'), local('CodaCaption-Heavy'), url(http://themes.googleusercontent.com/static/fonts/codacaption/v5/YDl6urZh-DUFhiMBTgAnz2pVmE9oLybi4D_AN-2K110.woff) format('woff');
+}
+@font-face {
+  font-family: 'Londrina Solid';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Londrina Solid'), local('LondrinaSolid-Regular'), url(http://themes.googleusercontent.com/static/fonts/londrinasolid/v1/yysorIEiYSBb0ylZjg791Or7NmWjaFpdDH7zur_b4wE.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}

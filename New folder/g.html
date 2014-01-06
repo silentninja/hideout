@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script type="text/javascript">
+        var index = false;
+        var text = "This text shifts to text box when clicked the button";
+
+        function DisplayText(){
+            if(!index){
+                document.getElementById("txt1").value = text;
+                document.getElementById("txt2").value = "";
+            }
+            else{
+                document.getElementById("txt2").value = text;
+                document.getElementById("txt1").value = "";
+            }
+
+            index = index ? false : true;
+        }
+   </script>
+</head>
+<body>
+    <input type="text" id="txt1"/>
+    <input type="text" id="txt2"/>
+    <input type="button" value="Change Text" onclick="DisplayText()"/>
+</body>
+</html>
